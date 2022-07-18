@@ -1,0 +1,44 @@
+package com.stepdefinition;
+
+import java.io.IOException;
+
+import org.openqa.selenium.WebDriver;
+
+import com.ada.Arvind.BaseClass;
+import com.pom.PageObjectManager_POM;
+import com.properties.File_Reader;
+
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class Adactin_StepDefinition extends BaseClass {
+	
+	public static WebDriver driver=getbrowser("chrome");
+
+	public static PageObjectManager_POM pom = new PageObjectManager_POM(driver);
+
+	@Given("User gives Credentials")
+	public void user_gives_credentials() throws IOException {
+		getUrl(File_Reader.getInstance_Fr().getInstance_cr().get_url());
+	}
+
+	@When("User gives Username in username field")
+	public void user_gives_username_in_username_field() throws IOException {
+		Inputs(pom.getInstanceLp().getUsername(), File_Reader.getInstance_Fr().getInstance_cr().get_uname());
+	}
+
+	@And("User gives Password in password field")
+	public void user_gives_password_in_password_field() throws IOException {
+		Inputs(pom.getInstanceLp().getPassword(), File_Reader.getInstance_Fr().getInstance_cr().get_pass());
+
+	}
+
+	@Then("user click Login Button")
+	public void user_click_login_button() throws IOException {
+		click(pom.getInstanceLp().getLogin());
+
+	}
+
+}

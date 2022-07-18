@@ -1,0 +1,179 @@
+package com.stepdefinition;
+
+import java.io.IOException;
+
+import org.openqa.selenium.WebDriver;
+
+import com.ada.Arvind.BaseClass;
+import com.pom.PageObjectManager_POM;
+import com.properties.File_Reader;
+
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class Adactin_StepDefinition extends BaseClass {
+	
+	public static WebDriver driver=getbrowser("chrome");
+
+	public static PageObjectManager_POM pom = new PageObjectManager_POM(driver);
+
+	@Given("User gives Credentials")
+	public void user_gives_credentials() throws IOException {
+		getUrl(File_Reader.getInstance_Fr().getInstance_cr().get_url());
+	}
+
+	/*
+	 * @When("User gives Username in username field") public void
+	 * user_gives_username_in_username_field() throws IOException {
+	 * Inputs(pom.getInstanceLp().getUsername(),
+	 * File_Reader.getInstance_Fr().getInstance_cr().get_uname()); }
+	 * 
+	 * @And("User gives Password in password field") public void
+	 * user_gives_password_in_password_field() throws IOException {
+	 * Inputs(pom.getInstanceLp().getPassword(),
+	 * File_Reader.getInstance_Fr().getInstance_cr().get_pass()); }
+	 */
+	
+
+		@When("User gives Username in <Username> field")
+		public void user_gives_username_in_username_field(String Username) {
+		   Inputs(pom.getInstanceLp().getUsername(), Username);
+		}
+
+
+		@When("User gives Password in <Password> field")
+		public void user_gives_password_in_password_field(String Password) {
+		    Inputs(pom.getInstanceLp().getPassword(), Password);
+		}
+
+
+
+
+	@Then("user click Login Button")
+	public void user_click_login_button() throws IOException {
+		click(pom.getInstanceLp().getLogin());
+	}
+	
+	@When("User search location")
+	public void user_search_location() throws IOException {
+		dropDown(pom.getInstanceSpage().getLoc(), "byindex",
+				File_Reader.getInstance_Fr().getInstance_cr().get_dropdown());
+	}
+
+	@When("User Search Hotel")
+	public void user_search_hotel() {
+		dropDown(pom.getInstanceSpage().getHote(), "byindex", "2");
+		}
+
+	@When("USer Find Room")
+	public void u_ser_find_room() {
+		dropDown(pom.getInstanceSpage().getRoom(), "byindex", "2");
+	}
+
+	@When("User Select Room Number")
+	public void user_select_room_number() {
+		dropDown(pom.getInstanceSpage().getRoom_no(), "byindex", "2");
+	}
+
+	@When("Customer Proceed Check in Date")
+	public void customer_proceed_check_in_date() {
+		click(pom.getInstanceSpage().getIn());
+		clear(pom.getInstanceSpage().getIn());
+		Inputs(pom.getInstanceSpage().getIn(), "22/07/2022");
+	}
+
+	@When("Customer Proceed Check out Date")
+	public void customer_proceed_check_out_date() {
+		click(pom.getInstanceSpage().getOut());
+		clear(pom.getInstanceSpage().getOut());
+		Inputs(pom.getInstanceSpage().getOut(), "23/07/2022");
+	}
+
+	@When("User gives countof Adults")
+	public void user_gives_countof_adults() {
+		dropDown(pom.getInstanceSpage().getAr(),"byindex","1");
+	}
+
+	@When("User gives countof children")
+	public void user_gives_countof_children() {
+		dropDown(pom.getInstanceSpage().getCr(), "byindex","1");
+	}
+
+	@Then("user click Submit")
+	public void user_click_submit() {
+		click(pom.getInstanceSpage().getSubmit());
+	}
+
+	@When("Select the Hotel")
+	public void select_the_hotel() {
+		  click(pom.getInstanceSpage().getR_button());
+	}
+
+	@Then("Click the continue for Credentials")
+	public void click_the_continue_for_credentials() {
+        click(pom.getInstanceSpage().getCont());
+	}
+
+	@When("user gives His\\/Her FirstName")
+	public void user_gives_his_her_first_name() {
+		 click(pom.getInstanceSpage().getF_name());
+	        Inputs(pom.getInstanceSpage().getF_name(), "Arvind");
+	}
+
+	@When("user gives His\\/Her LastName")
+	public void user_gives_his_her_last_name() {
+		 click(pom.getInstanceSpage().getL_name());
+	        Inputs(pom.getInstanceSpage().getL_name(), "vj");
+	}
+
+	@When("User gives address")
+	public void user_gives_address() {
+		 click(pom.getInstanceSpage().getAdd());
+	        Inputs(pom.getInstanceSpage().getAdd(), "ramapuram,Chennai");
+	}
+
+	@When("User gives own Credit Card Number")
+	public void user_gives_own_credit_card_number() {
+		   click(pom.getInstanceSpage().getCredit());
+	        Inputs(pom.getInstanceSpage().getCredit(), "1234567887654321");
+	}
+
+	@When("User gives Credit Card Type")
+	public void user_gives_credit_card_type() {
+		  click(pom.getInstanceSpage().getCredittype());
+	        dropDown(pom.getInstanceSpage().getCredittype(), "byindex","1");
+	}
+
+	@When("user gives Expiry month of credit card")
+	public void user_gives_expiry_month_of_credit_card() {
+		 click(pom.getInstanceSpage().getCc_exp());
+	        dropDown(pom.getInstanceSpage().getCc_exp(), "byindex","11");
+ 	}
+
+	@When("user gives Expiry Year of credit card")
+	public void user_gives_expiry_year_of_credit_card() {
+		 click(pom.getInstanceSpage().getExp_yr());
+	        dropDown(pom.getInstanceSpage().getExp_yr(), "byindex","11");
+	}
+
+	@When("user enters the CVV number from credit card")
+	public void user_enters_the_cvv_number_from_credit_card() {
+		 click(pom.getInstanceSpage().getCvv());
+	        Inputs(pom.getInstanceSpage().getCvv(), "342");
+	}
+
+	@Then("Book the hotel")
+	public void book_the_hotel() {
+		 click(pom.getInstanceSpage().getBook());
+	}
+
+	@Then("Click Logout button after Hotel Booking")
+	public void click_logout_button_after_hotel_booking() {
+		 waits();
+	        click(pom.getInstanceSpage().getLog_out());
+	}
+	
+
+}

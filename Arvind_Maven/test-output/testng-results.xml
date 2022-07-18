@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-07-04T12:03:50 IST" name="Suite" finished-at="2022-07-04T12:04:17 IST" duration-ms="27269">
+    <groups>
+    </groups>
+    <test started-at="2022-07-04T12:03:50 IST" name="Test" finished-at="2022-07-04T12:04:17 IST" duration-ms="27269">
+      <class name="com.testng.CrossBrowser">
+        <test-method signature="adactinChrome(java.lang.String,java.lang.String)[pri:0, instance:com.testng.CrossBrowser@4944252c]" started-at="2022-07-04T12:03:50 IST" name="adactinChrome" data-provider="loginData" finished-at="2022-07-04T12:04:15 IST" duration-ms="25339" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[arvind1]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[12345678]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- adactinChrome -->
+        <test-method signature="adactinEdge(java.lang.String,java.lang.String)[pri:0, instance:com.testng.CrossBrowser@4944252c]" started-at="2022-07-04T12:03:50 IST" name="adactinEdge" data-provider="loginData" finished-at="2022-07-04T12:04:17 IST" duration-ms="27213" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[arvind1]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[12345678]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- adactinEdge -->
+      </class> <!-- com.testng.CrossBrowser -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>

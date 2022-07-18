@@ -1,0 +1,28 @@
+io.cucumber.junit.UndefinedStepException: The step "User gives Credentials" is undefined. You can implement it using the snippet(s) below:
+
+@Given("User gives Credentials")
+public void user_gives_credentials() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Some other steps were also undefined:
+
+@When("User gives Username in {string} field")
+public void user_gives_username_in_field(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("User gives Password in {string} field")
+public void user_gives_password_in_field(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("user click Login Button")
+public void user_click_login_button() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+

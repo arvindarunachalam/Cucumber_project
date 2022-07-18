@@ -1,0 +1,42 @@
+package com.runnerfile;
+
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.runner.RunWith;
+import org.openqa.selenium.WebDriver;
+
+import com.ada.Arvind.BaseClass;
+
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
+
+@RunWith(Cucumber.class)
+@CucumberOptions(features = "src\\test\\java\\Cucumber_Featurefile", glue = "com.stepdefinition",
+		// tags = "@regression_run",
+		monochrome = true, dryRun = false, strict = true,
+		publish = true,
+		plugin = { "html:Cucu_Reports/htmlreport", "pretty",
+				"json:Cucu_Reports/jsonreport.json",
+				//"com.cucumber.listener.ExtentCucumberFormatter:Cucu_Reports/extent_report.html"
+
+		}
+
+)
+
+public class AdactinRunnerFile {
+
+	public static WebDriver driver;
+
+	@BeforeClass
+	public static void setUp() {
+		driver = BaseClass.getbrowser("chrome");
+
+	}
+
+	@AfterClass
+	public static void tearDown() {
+		driver.close();
+
+	}
+
+}

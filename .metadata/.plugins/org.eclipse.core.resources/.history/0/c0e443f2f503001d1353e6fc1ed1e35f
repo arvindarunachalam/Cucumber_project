@@ -1,0 +1,32 @@
+package com.testngrun;
+
+import java.io.IOException;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.Test;
+
+import com.ada.Arvind.BaseClass;
+import com.pom.PageObjectManager_POM;
+import com.properties.File_Reader;
+
+public class TestNg_Run extends BaseClass {
+	public static WebDriver driver;
+	
+
+	
+	@Test
+	public void browserLaunch() throws IOException {
+		driver = getbrowser(File_Reader.getInstance_Fr().getInstance_cr().get_browser());
+		getUrl(File_Reader.getInstance_Fr().getInstance_cr().get_url());
+	}	
+	PageObjectManager_POM pom=new PageObjectManager_POM(driver);
+	
+	public void logIn() throws IOException {
+		waits();
+		Inputs(pom.getInstanceLp().getUsername(), File_Reader.getInstance_Fr().getInstance_cr().get_uname());
+		Inputs(pom.getInstanceLp().getPassword(), File_Reader.getInstance_Fr().getInstance_cr().get_pass());
+		click(pom.getInstanceLp().getLogin());
+	
+	}
+		
+}

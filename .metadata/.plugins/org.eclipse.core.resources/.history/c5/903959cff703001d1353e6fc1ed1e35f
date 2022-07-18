@@ -1,0 +1,23 @@
+package com.stepdefinition;
+
+import java.io.IOException;
+
+import org.openqa.selenium.WebDriver;
+
+import com.ada.Arvind.BaseClass;
+import com.pom.PageObjectManager_POM;
+import com.properties.File_Reader;
+import com.runnerfile.AdactinRunnerFile;
+
+import io.cucumber.java.en.Given;
+
+public class dummy extends BaseClass{
+public static WebDriver driver=AdactinRunnerFile.driver;
+    
+	public static PageObjectManager_POM pom = new PageObjectManager_POM(driver);
+	@Given("User gives Credentials")
+	public void user_gives_credentials() throws IOException {
+		getUrl(File_Reader.getInstance_Fr().getInstance_cr().get_url());
+	}
+
+}

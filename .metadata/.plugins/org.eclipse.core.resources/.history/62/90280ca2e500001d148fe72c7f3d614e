@@ -1,0 +1,7 @@
+Feature: Adactin Hotel Booking
+
+Scenario: Login Functional
+Given User gives Credentials
+When User gives Username in username field
+And User gives Password in password field
+Then user click Login Button 

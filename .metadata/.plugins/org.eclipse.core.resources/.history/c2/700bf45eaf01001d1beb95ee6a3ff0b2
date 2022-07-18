@@ -1,0 +1,39 @@
+package com.ada.Arvind;
+
+import java.io.IOException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import com.pojo.LoginPage;
+import com.pojo.SearchPage;
+import com.pom.PageObjectManager_POM;
+import com.properties.File_Reader;
+
+public class Adactin_Project extends BaseClass {
+
+	public static void main(String[] args) throws IOException {
+
+		driver = getbrowser(File_Reader.getInstance_Fr().getInstance_cr().get_browser());
+		getUrl(File_Reader.getInstance_Fr().getInstance_cr().get_url());
+
+		PageObjectManager_POM pom = new PageObjectManager_POM(driver);
+
+		Inputs(pom.getInstanceLp().getUsername(), File_Reader.getInstance_Fr().getInstance_cr().get_uname());
+		Inputs(pom.getInstanceLp().getPassword(), File_Reader.getInstance_Fr().getInstance_cr().get_pass());
+		click(pom.getInstanceLp().getLogin());
+		dropDown(pom.getInstanceSpage().getLoc(), "byindex",
+				File_Reader.getInstance_Fr().getInstance_cr().get_dropdown());
+		dropDown(pom.getInstanceSpage().getHote(), "byindex", "2");
+		dropDown(pom.getInstanceSpage().getRoom(), "byindex", "2");
+		dropDown(pom.getInstanceSpage().getRoom_no(), "byindex", "2");
+		dropDown(pom.getInstanceSpage().getIn(), "visibletext", "12/07/2022");
+		dropDown(pom.getInstanceSpage().getOut(),"visibletext","13/07/2022");
+		dropDown(pom.getInstanceSpage().getAr(),"byindex","1");
+		dropDown(pom.getInstanceSpage().getCr(), "byindex","1");
+		click(pom.getInstanceSpage().getSubmit());
+
+	}
+}
